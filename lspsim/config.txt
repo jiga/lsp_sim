@@ -1,0 +1,26 @@
+#This is the configuration file used by the program
+#Please do not modify it
+#Sections start with a .
+
+#Name	Speed(kbps)	MTU  Delay(ms)	ErrorRate(%) 
+.link
+2000 64 512 0.01 99
+2001 2544 1460 0.03 1
+2002 64 512 0.02 2
+
+#node portno:interfaceIP:mask:hellointerval:deadinterval:retransmitinterval:cost:delay portno:interfaceIP:mask:hellointerval:deadinterval:retransmitinterval:cost:delay
+.topology
+A 2000:192.168.0.1/24:3:25:10:1:1 2001:192.168.1.2/24:3:25:10:1:1
+B 2000:192.168.0.2/24:3:25:10:1:1 2002:192.168.2.1/24:3:25:10:1:1
+C 2002:192.168.2.2/24:3:25:10:1:1 2001:192.168.1.1/24:3:25:10:1:1
+
+#attribute:value
+.LSRparameters
+MaxAge:20
+MaxAgeDiff:6
+w_cost:0.33
+w_delay:0.33
+w_bandwidth:0.33
+
+
+
